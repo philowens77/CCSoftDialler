@@ -1,0 +1,39 @@
+{
+    "author": "Phil Owens",
+    "manifest_version": 3,
+    "name": "Tel Interceptor for Dynamics",
+    "version": "1.2",
+    "description": "Intercept tel: links and open ContactCenter softphone in Dynamics.",
+    "permissions": [
+        "scripting",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.dynamics.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "dynamics-listener.js"
+            ],
+            "matches": [
+                "https://*.dynamics.com/*"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
